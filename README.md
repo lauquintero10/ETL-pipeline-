@@ -1,6 +1,7 @@
 # ETL Project with Subway USA Stores DataSet 🥪
 
 ETL structure that:
+
 🧾 extracts data by Google API 
 
 🗄 Saving and connecting data process with ☁️ Google Cloud
@@ -9,9 +10,10 @@ ETL structure that:
 
 
 
-1 Step: 🗃️ Get Data from 🗺️ Google Maps API 
+- 🗃️ Get Data from 🗺️ Google Maps API 
 
-2 Step: Big Query Integration 📡
+- 📡 Big Query Integration 
 
-3 Step: 📈 Looker Studio Conection:
+- 📈 Looker Studio Conection:
+- 
 https://datastudio.google.com/reporting/6b018d61-0515-4142-94c0-7c544b7b58bc
