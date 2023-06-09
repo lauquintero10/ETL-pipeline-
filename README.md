@@ -1,12 +1,6 @@
 # ETL Project with Subway USA Stores DataSet 🥪
 
-ETL structure that:
-
-🧾 extracts data by Google API 
-
-🗄 Saving and connecting data process with ☁️ Google Cloud
-
-📊 Dashboard to take 👔 decisions with Looker Studio 🖥
+ETL structure that: 🧾 extracts data by Google API --> 🗄 Saving and connecting data process with ☁️ Google Cloud --> 📊 Dashboard to take 👔 decisions with Looker Studio 🖥
 
 
 
