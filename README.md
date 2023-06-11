@@ -1,23 +1,18 @@
 # ETL Project with Subway USA Stores DataSet 🥪
 
-ETL structure that: 🧾 extracts data by Google API --> 🗄 Saving and connecting data process with ☁️ Google Cloud --> 📊 Dashboard to take 👔 decisions with Looker Studio 🖥
+## ETL structure: 
 
-
-
-- 🗃️ Get Data from 🗺️ Google Maps API 
-
-- 📡 Big Query Integration 
-
-- 📈 Looker Studio Conection:
-
-https://datastudio.google.com/reporting/6b018d61-0515-4142-94c0-7c544b7b58bc
+### 🧾 extracts data by Google API:  🗺️ `Google Maps API`
+### 🗃️ Saving and connecting data process with ☁️ Google Cloud: 📡 `Big Query Integration` 
+### 📊 [Dashboard](https://datastudio.google.com/reporting/6b018d61-0515-4142-94c0-7c544b7b58bc) to take 👔 decisions: 📈 `Looker Studio Conection`
 
 ##
 
-1. Access to the Google Maps API with the latitude and longitude of each store, then we get a `JSON` with all data available about business near 2 km to Subways stores.  
-2. Use the `Business` Keyword to find all the relevant data about differents types of stores near to Subway.
-3. After extracting all data,  created a `Python` function that normalizes and gives us a `dataframe`. 
-4. The final dataframe will be saved in a `Bucket` *etl_raw_data* inside the fold before being created. This allows the use of the data without overwriting the already extracted.
+1️⃣ 
+#### - 📥 Access to the Google Maps API with the latitude and longitude of each store, then we get a `JSON` with all data available about business near 2 km to Subways stores.  
+#### - 🖍 Use the `Business` Keyword to find all the relevant data about differents types of stores near to Subway.
+#### - ⌨️ After extracting all data,  created a `Python` function that normalizes and gives us a `dataframe`. 
+#### - 💾 The final dataframe will be saved in a `Bucket` *etl_raw_data* inside the fold before being created. This allows the use of the data without overwriting the already extracted.
 
 ##
 
@@ -38,12 +33,12 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="etl-project-370513-***********.jso
 
 df = pd.read_csv('gs://provided-table/subway.csv')
 ```
-#Testing Keyword to execute the call all at once, due to the charge time being long and the Free version API being limited 
+#### Testing Keyword to execute the call all at once, due to the charge time being long and the Free version API being limited 
 ``` ruby
 df_sample1 = df[df["city"]=="Alexandria"]
 df_sample1.to_csv('df_sample1.csv', index = False)
 ```
-#Extract function from API by Lat and Long, to then save in a data frame.
+#### Extract function from API by Lat and Long, to then save in a data frame.
 ``` ruby
 def search_locations(data):
 
@@ -80,11 +75,11 @@ result_api_google = search_locations(df)
 result_api_google.shape
 
 ```
-#Saving  in cvs format
+#### Saving  in cvs format
 ``` ruby
 result_api_google.to_csv('result_api_google.csv', index = False)
 ``` 
-#Saving in Google Cloud Storage
+#### Saving in Google Cloud Storage
 ``` ruby
 bucket_name = 'etl_raw_data' 
 local_path = 'result_api_google.csv' 
