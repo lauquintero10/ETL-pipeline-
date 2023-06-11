@@ -43,7 +43,7 @@ df = pd.read_csv('gs://provided-table/subway.csv')
 df_sample1 = df[df["city"]=="Alexandria"]
 df_sample1.to_csv('df_sample1.csv', index = False)
 ```
-# Extract function from API by Lat and Long, to then save in a data frame.
+#Extract function from API by Lat and Long, to then save in a data frame.
 ``` ruby
 def search_locations(data):
 
@@ -79,6 +79,20 @@ result_api_google = search_locations(df)
 
 result_api_google.shape
 
+```
+#Saving  in cvs format
+``` ruby
+result_api_google.to_csv('result_api_google.csv', index = False)
+``` 
+#Saving in Google Cloud Storage
+``` ruby
+bucket_name = 'etl_raw_data' 
+local_path = 'result_api_google.csv' 
+blob_path = datetime.today().strftime('%Y-%m-%d') + '/data/' + local_path
+
+bucket = storage.Client(project='etl-project-370513').bucket(bucket_name)
+blob = bucket.blob(blob_path)
+blob.upload_from_filename(local_path)
 ```
 
 
